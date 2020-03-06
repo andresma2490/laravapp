@@ -13,7 +13,7 @@
             </button>
         </div>
     @endif
-    <form method="POST" action="{{ route('news.update', $article->id) }}">
+    <form method="POST" action="{{ route('articles.update', $article->id) }}">
         @method('PUT')
         @csrf
         
@@ -34,6 +34,6 @@
 
         <hr/>
         <button class="btn btn-success" type="submit">Guardar</button>
-        <a class="btn btn-secondary" href="{{ route('news') }}" role="button">Volver</a>
+        <a class="btn btn-secondary" href="{{ route('articles.index') }}" role="button">Volver</a>
     </form>
 @endsection

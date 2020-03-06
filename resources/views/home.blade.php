@@ -1,5 +1,5 @@
 @extends('appTemplate')
 
 @section('title')
-    BIENVENIDO
+    Bienvenid@
 @endsection

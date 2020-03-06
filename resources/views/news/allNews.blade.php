@@ -5,10 +5,16 @@
 @endsection
 
 @section('content')
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        +
-    </button><br/><br/>
+
+    @if (Auth::check()) 
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            +
+        </button><br/><br/>
+    @else
+        <p>Para agregar o editar una noticia debes estar logueado</p>
+    @endif
+
 
     @if (session('message'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -35,14 +41,18 @@
                 <td>{{ $article->title }}</td>
                 <td>{{ $article->description }}</td>
                 <td>
-                    <a class="btn btn-info" href="{{ route('news.detail', $article) }}" role="button">Ver</a>
-                    <a class="btn btn-warning" href="{{ route('news.edit', $article) }}" role="button">Editar</a>
+                    <a class="btn btn-info" href="{{ route('articles.show', $article) }}" role="button">Ver</a>
                     
-                    <form method="POST" class="delete d-inline" action="{{ route('news.delete', $article) }}">
-                        @method('DELETE')
-                        @csrf
-                        <button type="submit" onclick="return confirm('¿Esta seguro de querer eliminar esta noticia?')" class="btn btn-danger btn-sm" style="padding:7.5px 12px">x</button>
-                    </form> 
+                    @if (Auth::check()) 
+                        <a class="btn btn-warning" href="{{ route('articles.edit', $article) }}" role="button">Editar</a>
+                        
+                        <form method="POST" class="delete d-inline" action="{{ route('articles.destroy', $article) }}">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" onclick="return confirm('¿Esta seguro de querer eliminar esta noticia?')" class="btn btn-danger btn-sm" style="padding:7.5px 12px">x</button>
+                        </form>
+                    @endif
+
                 </td>
             </tr>
         @endforeach
@@ -68,7 +78,7 @@
         </div>
 
         <div class="modal-body">
-            <form method="POST" action="{{ route('news.create') }}">
+            <form method="POST" action="{{ route('articles.store') }}">
                 @csrf
                 <input
                     type="text"

@@ -9,7 +9,7 @@ class ArticleController extends Controller
 { 
     //proteger rutas (requieren auth)
     public function __construct(){
-        $this->middleware('auth', ['except' => ['index']]);
+        $this->middleware('auth', ['except' => ['index','show']]);
     }
 
     /**
@@ -48,6 +48,7 @@ class ArticleController extends Controller
         $newArticle = new App\Article;
         $newArticle->title = $request->title;
         $newArticle->description = $request->description;
+        $newArticle->user_id = auth()->user()->id;
 
         $newArticle->save();
 

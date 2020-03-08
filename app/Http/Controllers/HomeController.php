@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('profile');
+        $news = App\Article::all()->where('user_id', auth()->user()->id);
+        return view('profile', compact('news'));
     }
 }

@@ -43,7 +43,7 @@
                 <td>
                     <a class="btn btn-info" href="{{ route('articles.show', $article) }}" role="button">Ver</a>
                     
-                    @if (Auth::check()) 
+                    @if (Auth::check() and Auth::user()->id === $article->user_id)
                         <a class="btn btn-warning" href="{{ route('articles.edit', $article) }}" role="button">Editar</a>
                         
                         <form method="POST" class="delete d-inline" action="{{ route('articles.destroy', $article) }}">
@@ -58,12 +58,6 @@
         @endforeach
     </tbody>
     </table>
-
-    <script>
-        $(".delete").on("submit", function(){
-            return confirm("Do you want to delete this item?");
-        });
-    </script>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -31,3 +31,6 @@ Los contenedores creados y sus puertos son los siguientes:
 - **npm**
 - **composer**
 - **artisan**
+
+
+puede modificarlos en el docker-compose.yml

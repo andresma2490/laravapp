@@ -20,7 +20,7 @@ docker-compose run --rm artisan migrate
 ```
 
 
-link al repositorio en el que base este entorno de trabajo con docker [aquí](https://github.com/aschmelyun/docker-compose-laravel).
+link al repositorio en el que base este entorno de trabajo con docker [aquí](https://github.com/aschmelyun/docker-compose-laravel). Si no desea usar el entorno hecho en docker puede correr solo la aplicación que esta en /src/laravapp en su máquina
 
 
 Los contenedores creados y sus puertos son los siguientes (puede modificarlos si desea):
@@ -47,7 +47,7 @@ sudo chmod 777 -R storage/
 sudo chmod 777 -R bootstrap/cache/
 ```
 
-...en caso de no estar en una maquína propia, puede correr un contenedor mapeando las carpetas y otorgar los permisos (claro, asumiendo que su sesión tenga agregado su usuario al grupo de docker)
+...en caso de no estar en una máquina propia, puede correr un contenedor mapeando las carpetas y otorgar los permisos (claro, asumiendo que su sesión tenga agregado su usuario al grupo de docker)
 
 ``` bash
 #ej

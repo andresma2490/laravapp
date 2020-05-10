@@ -37318,7 +37318,9 @@ var staticRenderFns = [
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
-              _vm._v("\n                    ji ji ji \n                ")
+              _vm._v(
+                "\n                    Vue component inside Blade\n                "
+              )
             ])
           ])
         ])
@@ -49659,8 +49661,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/andresma/Desktop/laravapp/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/andresma/Desktop/laravapp/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /var/www/html/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /var/www/html/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
